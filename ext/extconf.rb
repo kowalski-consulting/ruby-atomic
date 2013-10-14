@@ -16,10 +16,12 @@ dir_config(extension_name)
 
 if CONFIG["GCC"] && CONFIG["GCC"] != ""
   case CONFIG["arch"]
-  when /mswin32|mingw|solaris/
-      $CFLAGS += " -march=native"
+  when /mswin32|mingw/
+    $CFLAGS += " -march=native"
+  when /solaris/
+    $CFLAGS += " -march=i686"
   when 'i686-linux'
-      $CFLAGS += " -march=i686"
+    $CFLAGS += " -march=i686"
   end
 end
 
